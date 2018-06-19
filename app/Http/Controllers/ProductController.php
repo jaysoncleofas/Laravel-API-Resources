@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::paginate(15);
+        $products = Product::orderBy('created_at', 'desc')->paginate(6);
 
         return ProductResource::collection($products);
     }
